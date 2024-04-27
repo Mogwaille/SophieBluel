@@ -186,3 +186,30 @@ footer nav ul {
 	margin: 2em
 }
 
+/* Filtres */
+
+.filtres {
+	padding-bottom: 10px;
+    text-align: center;
+}
+
+.button {
+	height: 50px;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	font-family: 'Syne';
+	font-weight: 700;
+	color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+	border-color: #1D6154;
+	border-style: solid;
+	cursor: pointer;
+}
+
+.button__selected {
+	color: white;
+	background-color: #1D6154;
+}
