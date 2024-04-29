@@ -213,3 +213,65 @@ footer nav ul {
 	color: white;
 	background-color: #1D6154;
 }
+
+/* Login */
+
+body {
+	background-color: rgb(254, 255, 247);
+}
+
+footer {
+	background-color: white;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+
+.login {
+	font-weight: 800;
+}
+
+.forget a {
+	text-decoration: underline;
+}
+
+main {
+	text-align: center;
+}
+
+.subtitle {
+	margin-top: 10%;
+	margin-bottom: 5%;
+}
+
+.form-example {
+    margin-bottom: 20px;
+}
+
+.form-example label {
+    display: block;
+	text-align: justify;
+	margin-left: 400px;
+    margin-bottom: 5px;
+}
+
+.form-example input {
+	width: 30%;
+    box-sizing: border-box;
+    padding: 8px;
+	border: none;
+	box-shadow: 5px 5px 5px rgb(234, 234, 234);
+}
+
+.submit {
+	width: 50%;
+	margin-left: 285px;
+	margin-bottom: 0px;
+}
+
+.forget {
+	margin-bottom: 350px;
+}
