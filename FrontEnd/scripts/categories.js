@@ -14,6 +14,9 @@ const updateGallery = (filteredWorks) => {
     showWorks(filteredWorks)
 }
 
+// Déclaration de la constante buttons
+const buttons = document.querySelectorAll(".button")
+
 // Fonction pour changer le selectedButton et filtrer les works
 const changeSelectedButton = async (event) => {
     const category = event.target.textContent
@@ -22,7 +25,6 @@ const changeSelectedButton = async (event) => {
     updateGallery(filtrerWorks)
 
     // Changement de "button__selected"
-    const buttons = document.querySelectorAll(".button")
     buttons.forEach(button => {
         button.classList.remove("button__selected")
     })
@@ -30,7 +32,6 @@ const changeSelectedButton = async (event) => {
 }
 
 // Ajout d'un EventListener sur chaque boutons
-const buttons = document.querySelectorAll(".button")
 buttons.forEach(button => {
     button.addEventListener("click", changeSelectedButton)
 })
