@@ -276,6 +276,11 @@ main {
 	cursor: pointer;
 }
 
+.error{
+	color: red;
+	margin-top: 20px;
+}
+
 .forget {
 	margin-bottom: 350px;
 }
@@ -328,11 +333,15 @@ main {
 .modal-wrapper {
 	overflow: auto;
 	width: 600px;
+	height: 700px;
 	max-width: calc(100vw - 20px);
 	max-height: calc(100vh - 20px);
 	padding: 20px;
 	background-color: #FFF;
 	animation: slideFromTop .5s both;
+	display: flex;
+	justify-content: space-between;
+	border-radius: 3%;
 }
 
 .modal[aria-hidden="true"] {
@@ -341,6 +350,10 @@ main {
 
 .modal[aria-hidden="true"] .modal-wrapper {
 	animation-name: slideToBottom;
+}
+
+.second-modal{
+	display: none;
 }
 
 @keyframes fadeIn {
@@ -361,4 +374,170 @@ main {
 @keyframes slideToBottom {
 	from { transform: translateY(0px);}
 	to { transform: translateY(50px);}
+}
+
+.js-modal-close {
+	width: 20px;
+	height: 25px;
+	position: relative;
+	left: 275px;
+	cursor: pointer;
+}
+
+.first-modal h2, .second-modal h2 {
+	color: black;
+	font-size: x-large;
+}
+
+.gallery-modal {
+	display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+	grid-row-gap: 30px;
+    padding-left: 30px;
+	padding-right: 30px;
+	border-bottom: 1px solid black;
+}
+
+.gallery-modal img {
+	width: 100%;
+    height: auto;
+	position: relative;
+}
+
+.gallery-modal figcaption {
+	display: none;
+}
+
+.logo-container {
+	background-color: black;
+	padding: 5px;
+	border-radius: 10%;
+	z-index: 1;
+	width: 15%;
+	position: relative;
+	bottom: 125px;
+	left: 65px;
+    cursor: pointer;
+}
+
+.first-modal input {
+	height: 5%;
+	width: 50%;
+	border-top: 1px solid black;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+.second-modal {
+	padding: 50px;
+}
+
+.second-modal .js-modal-close {
+	position: relative;
+	bottom: 35px;
+}
+
+.modal-back img {
+	width: 20px;
+	height: 25px;
+	position: relative;
+	bottom: 35px;
+	right: 280px;
+	cursor: pointer;
+}
+
+.modal-back {
+	border: none;
+	background-color: white;
+	position: absolute;
+}
+
+.add-photo {
+	background-color: rgb(212, 233, 240);
+	border-radius: 2%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+	margin-bottom: 40px;
+}
+
+.add-photo img {
+	opacity: 20%;
+    width: 20%;
+}
+
+.add-photo button {
+    height: 50px;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    font-weight: 700;
+    color:rgb(49, 132, 177);
+	margin: 10px;
+    width: 180px;
+    text-align: center;
+    border-radius: 60px;
+    cursor: pointer;
+}
+
+.add-photo button:hover {
+	background-color: rgb(216, 216, 216);
+}
+
+#apercuImage {
+    display: none;
+}
+
+.form-modal {
+    margin-bottom: 20px;
+}
+
+.form-modal label {
+    display: block;
+	text-align: justify;
+    margin-bottom: 5px;
+}
+
+.form-modal input, .form-modal select {
+	width: 100%;
+	height: 40px;
+    box-sizing: border-box;
+    padding: 8px;
+	border: none;
+	box-shadow: 5px 5px 5px rgb(234, 234, 234);
+}
+
+.form-modal-categories {
+	border-bottom: 1px solid black;
+	padding-bottom: 50px;
+}
+.valider {
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #a4a4a4;
+	margin : 2em auto ;
+	width: 250px;
+	text-align: center;
+	border-radius: 60px;
+	border: none;
+	height: 7%;
+}
+
+.valider-after {
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 250px;
+	text-align: center;
+	border-radius: 60px;
+	border: none;
+	height: 7%;
+	cursor: pointer;
 }

@@ -3,8 +3,9 @@ const connexion = async (event) => {
     event.preventDefault()
 
     // Déclaration des constantes email et mot de passe
-    const email = document.getElementById("email").value
-    const password = document.getElementById("password").value
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const error = document.querySelector(".password");
 
     // Fonction pour stocker le token dans le localStorage
     const stockerToken = (token) => {
@@ -21,7 +22,9 @@ const connexion = async (event) => {
             stockerToken(response.token)
             window.location.href = "index.html"
         } else {
-            alert("Erreur dans l’identifiant ou le mot de passe")
+            //alert("Erreur dans l’identifiant ou le mot de passe")
+
+            error.innerHTML += "<p class='error'>Identifiant ou mot de passe incorrect</p>";
         }
     } catch (error) {
         alert("Une erreur s\'est produite")
@@ -48,7 +51,7 @@ const majLogin = () => {
     }
 }
 
-// Fonction pour la déconnection
+// Fonction pour la déconnexion
 const deconnexion = () => {
     localStorage.removeItem("token")
     localStorage.removeItem("connexion")
