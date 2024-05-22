@@ -186,6 +186,18 @@ footer nav ul {
 	margin: 2em
 }
 
+.index__login {
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	font-size: initial;
+	vertical-align: baseline;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
 /* Filtres */
 
 .filtres {
@@ -328,6 +340,7 @@ main {
 	height: 100%;
 	background: rgba(0, 0, 0, 0.8);
 	animation: fadeIn .3s both;
+	z-index: 1000;
 }
 
 .modal-wrapper {
@@ -374,6 +387,26 @@ main {
 @keyframes slideToBottom {
 	from { transform: translateY(0px);}
 	to { transform: translateY(50px);}
+}
+
+figure {
+    position: relative;
+    display: inline-block;
+}
+
+.btn-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: black;
+	border-radius: 20%;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-delete i {
+    color: white;
+    font-size: 15px;
 }
 
 .js-modal-close {
@@ -471,12 +504,14 @@ main {
     width: 20%;
 }
 
-.add-photo button {
-    height: 50px;
+.add-photo-input {
+    height: 30px;
     border: none;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
     font-weight: 700;
     color:rgb(49, 132, 177);
+    background-color: rgb(179, 198, 208);
+    padding-top: 15px;
 	margin: 10px;
     width: 180px;
     text-align: center;
@@ -484,12 +519,14 @@ main {
     cursor: pointer;
 }
 
-.add-photo button:hover {
+.add-photo-input:hover {
 	background-color: rgb(216, 216, 216);
 }
 
 #apercuImage {
     display: none;
+	max-width: 20%;
+	opacity: 1;
 }
 
 .form-modal {
