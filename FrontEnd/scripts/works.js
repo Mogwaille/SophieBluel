@@ -32,7 +32,7 @@ function showWorks(workData){
 
         deleteFigure = document.createElement('button');
         deleteFigure.classList.add('btn-delete');
-        deleteFigure.innerHTML = '<i class="fa-solid fa-trash"></i>';
+        deleteFigure.innerHTML = '<i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>';
         deleteFigure.setAttribute('data-id', element.id);
 
         galleryModal.appendChild(newFigure);
@@ -67,6 +67,12 @@ const deleteImageAPI = async (idDelete) => {
         });
         if (response.ok) {
             console.log(`Work with id ${idDelete} has been deleted successfully.`);
+
+            galleryModal.innerHTML = "";
+
+            const works = await apiWorks(); // Appelez à nouveau l'API pour obtenir la liste mise à jour
+            updateGallery(works);
+
         } else {
             console.error(`Erreur HTTP: ${response.status}`);
         }
