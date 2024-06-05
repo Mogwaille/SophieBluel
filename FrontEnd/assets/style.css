@@ -569,7 +569,7 @@ figure {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
-	background-color: #a4a4a4;
+	background-color: #1D6154;
 	height: 40px;
 	width: 250px;
 	text-align: center;
@@ -579,17 +579,6 @@ figure {
 	margin-top: 20px;
 }
 
-.valider-after {
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	height: 40px;
-	width: 250px;
-	text-align: center;
-	border-radius: 60px;
-	border: none;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-	margin-top: 20px;
-	cursor: pointer;
+.valider:disabled{
+	background-color: #a4a4a4;
 }

@@ -32,7 +32,7 @@ function showWorks(workData){
 
         deleteFigure = document.createElement('button');
         deleteFigure.classList.add('btn-delete');
-        deleteFigure.innerHTML = '<i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>';
+        deleteFigure.innerHTML = '<i class="fa-solid fa-trash"></i>';
         deleteFigure.setAttribute('data-id', element.id);
 
         galleryModal.appendChild(newFigure);

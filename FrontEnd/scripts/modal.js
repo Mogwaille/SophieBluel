@@ -28,23 +28,26 @@ const openModal = function (e) {
 const fileInput = document.querySelector("#add-photo-input");
 const apercuImage = document.querySelector("#apercuImage");
 const logoImg = document.querySelector("#logoImg");
-    fileInput.addEventListener("change", function(event) {
+const addPhotoLabel = document.querySelector(".add-photo-input");
+const addPhotoText = document.querySelector(".add-photo p");
+
+fileInput.addEventListener("change", function(event) {
     const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
             apercuImage.src = e.target.result;
             apercuImage.style.display = "block";
             logoImg.style.display = "none";
-            document.querySelector(".add-photo-input").style.display = "none";
-            document.querySelector(".add-photo p").style.display = "none";
+            addPhotoLabel.style.display = "none";
+            addPhotoText.style.display = "none";
         }
-    reader.readAsDataURL(file);
+        reader.readAsDataURL(file);
     }
 });
 
 
-// Déclaration de constantes pour l'envoie d'image
+// Déclaration de plusieurs constantes pour la seconde modale
 const form = document.getElementById('form');
 const inputTitle = document.getElementById("title");
 const selectCategory = document.getElementById("categories");
@@ -52,19 +55,14 @@ const imageFile = document.getElementById("add-photo-input");
 const validateButton = document.getElementById("submit");
 
 
-// Création de la fonction checkFormInputs (+ modification de la class du bouton valider)
+// Création de la fonction pour modifier le bouton valider
 function checkFormInputs() {
     if (imageFile.files.length > 0 && inputTitle.value && selectCategory.value !== "0") {
         validateButton.removeAttribute('disabled');
-        validateButton.classList.remove('valider');
-        validateButton.classList.add('valider-after');
     } else {
         validateButton.setAttribute('disabled', 'disabled');
-        validateButton.classList.remove('valider-after');
-        validateButton.classList.add('valider');
     }
 }
-  
 checkFormInputs();
 
 
@@ -81,12 +79,6 @@ const addImageAPI = async (event) => {
     const categoryValue = selectCategory.value;
     const imageFileValue = imageFile.files[0];
 
-    // Vérifier que les valeurs des champs ne sont pas vides
-    if (!titleValue || !categoryValue || !imageFileValue) {
-        alert("Tous les champs doivent être remplis");
-        return;
-    }
-
     // Créer un nouvel objet FormData et y ajouter les valeurs des champs
     const formData = new FormData();
     formData.append("title", titleValue);
@@ -97,7 +89,7 @@ const addImageAPI = async (event) => {
         const token = localStorage.getItem("token");
         const response = await fetch("http://localhost:5678/api/works", {
             method: "POST",
-            headers: { "Authorization": `Bearer ${token}` }, // Pas de Content-Type ici
+            headers: { "Authorization": `Bearer ${token}` },
             body: formData
         });
         const result = await response.json();
@@ -105,12 +97,11 @@ const addImageAPI = async (event) => {
             console.log("Image ajoutée avec succès", result);
 
             galleryModal.innerHTML = "";
-
+            form.reset();
+            back();
             // Mettre à jour la galerie avec les nouvelles données
-            const works = await apiWorks(); // Appelez à nouveau l'API pour obtenir la liste mise à jour
+            const works = await apiWorks();
             updateGallery(works);
-
-            //closeModal(event);
         } else {
             console.error("Erreur lors de l'ajout de l'image", result);
         }
@@ -197,7 +188,11 @@ btnAddWork.addEventListener('click', function (){
     secondModal.style.display = "block";
 })
 
-modalBack.addEventListener('click', function (){
+function back(){
     firstModal.style.display = "block";
     secondModal.style.display = "none";
+}
+
+modalBack.addEventListener('click', function (){
+    back();
 })
